@@ -91,9 +91,8 @@ namespace GetDateRanges
         private static DateRange Next(this IEnumerable<DateRange> source, DateTime minStart)
         {
             return source
-                .Where(d => d.Start > minStart)
                 .OrderBy(d => d.Start)
-                .FirstOrDefault();
+                .FirstOrDefault(d => d.Start > minStart);
         }
     }
 }
